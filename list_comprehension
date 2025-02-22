@@ -1,0 +1,26 @@
+l=[i**2 for i in range(10)]
+print(l)
+#nested list 
+liste=[[i for i in range(3)] for j in range(3)]
+print(liste)
+
+prenom=['pierre','jean','julie','sophie']
+dico={k:v for k,v in enumerate(prenom)}
+print(dico)
+age=[45,23,69,75]
+dic={prenom:age for prenom,age in zip(prenom,age) if age>23}
+print(dic) #ajout d'une condition
+
+#tuple comprehension 
+tuple1=tuple((i**2 for i in range(10)))
+print(tuple1)
+
+index=[i for i in range(21)]
+carre=[i**2 for i in range(21)]
+dicoexo={index:carre for index,carre in zip(index,carre)}
+print(dicoexo)
+
+carre={
+    str(k) : k**2 for k in range(21)
+}
+print(carre)

@@ -1,0 +1,7 @@
+def e_potentielle(masse,hauteur,limite,g=9.81):
+    E=masse*g*hauteur
+    if E>limite:
+        return(f'{E} J est supérieur à la limite')
+    else :
+        return(f'{E} J inférieur à la limite')
+    

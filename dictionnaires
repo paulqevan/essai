@@ -1,0 +1,37 @@
+traduction={
+    "chien": "dog",
+    "souris": "mouse",
+    "cheval": "horse",
+    "poission": "fish"
+    }
+
+#à gauche la clef est unique, à droite la valeur non
+
+inventaire={
+    "bananes":100,
+    "poires":150,
+    "pommes":170
+} 
+
+print(inventaire.values()) #retourne les valeurs 
+print(inventaire.keys()) #retourne les clefs 
+print(inventaire.__len__()) #taille 
+
+inventaire["pêche"]=200 #ajout d'une clef et de sa valeur 
+print(inventaire)
+
+#boucle for et dictionnaire
+for k,v in inventaire.items():
+    print(k,v)
+
+classeur={
+    "positif":[],
+    "négatif":[]
+}
+
+def trier(classeur,n):
+    if n>0:
+        classeur["positif"]=n
+    else:
+        classeur["négatif"]=n
+    return(classeur)

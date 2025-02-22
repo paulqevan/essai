@@ -1,0 +1,25 @@
+import math
+import random
+import statistics
+import os
+import glob 
+
+def fibonacci(n):
+    list=[0,1]
+    fi=0
+    for i in range(2,n+1):
+        list.append(list[i-1]+list[i-2])
+    return(list)
+
+print(statistics.mean(fibonacci(10)))
+print(statistics.variance(fibonacci(10)))
+
+random.seed(0)
+print(random.random())
+print(random.randint(1,4))
+print(random.randrange(1,4))
+print(random.shuffle(fibonacci(10)))
+
+os.getcwd()
+
+print(glob.glob("*.py"))

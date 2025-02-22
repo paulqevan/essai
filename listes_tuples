@@ -1,0 +1,28 @@
+liste=['Paris','Bordeaux','Strasbourg','Lille']
+print(liste[-1]) #accéder au dernier élément 
+
+#IMPORTANT : le slincing liste[début:fin:pas]
+print(liste[0:3:1]) #les trois premiers éléments
+#le zéro n'est pas obligatoire
+print(liste[::-1]) #inverser une liste grâce au pas
+
+liste.insert(2,'Pékin') #insertion d'élément
+print(liste)
+
+suite=['Amsterdam','Rome']
+liste.extend(suite) #concaténation de liste
+print(liste)
+
+liste.sort() #tri par ordre alphabétique (ajouter reverte=True pour l'inverse)
+print(liste)
+
+print(liste.count('Paris')) #compter les occurences 
+
+for index,valeur in enumerate(liste): #valeur et index
+    print(index,valeur)
+
+#utiliser la boucle for avec deux listes en parallèle
+nombres=[11,78,36,25,89,1]
+for a,b in zip(liste,nombres):
+    print(a,b)
+#la boucle for s'arrête à la liste la plus courte

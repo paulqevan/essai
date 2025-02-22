@@ -1,0 +1,22 @@
+x=-3
+print(abs(x))
+print(type(x))
+x=str(x)
+print(type(x))
+
+a=input("Entrez un nombre entier")
+
+f=open("fichier.txt","w")
+f.write('Bonjour le Q')
+f.close()
+
+f=open("fichier.txt",'r')
+f.read()
+f.close()
+
+with open("fichier.txt","w") as f:
+    for i in range(10):
+        f.write(f'{i}\n')
+
+
+

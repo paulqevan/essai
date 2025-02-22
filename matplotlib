@@ -1,0 +1,114 @@
+import numpy as np 
+import matplotlib.pyplot as plt 
+
+x=np.linspace(0,2,10)
+y=x**2
+print(y)
+print(y.shape)
+plt.figure(figsize=(5,5)) #dimensions de la figure
+plt.plot(x,y,c='r',lw=2,ls='--',label='carré') #ligne
+plt.plot(x,x**3,c='b',lw=2,label='cube') #ligne
+#lw=line width, c=couleur, ls=line style
+#plt.scatter(x,y) #points 
+plt.title('Polynômes')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.show()
+#plt.savefig('titre.png")
+
+####tracer une série de graphiques 
+plt.figure()
+for k in range(1,):
+    plt.subplot(2,2,k)
+    plt.plot(x,x**k)
+plt.show()
+
+#exercice 
+dataset={f"experience{i}":np.random.randn(100) for i in range(4)}
+print(dataset["experience0"].__len__())
+print(dataset.keys())
+def graphique(dataset):
+    x=np.arange(0,100,1)
+    plt.figure()
+    for k in range(0,len(dataset.keys())):
+        plt.subplot(2,2,k+1)
+        plt.plot(x,dataset[f"experience{k}"])
+        plt.title(f'Expérience {k}')
+    plt.show()
+
+print(len(dataset.keys()))
+
+#graphiques de base
+from sklearn.datasets import load_iris
+iris=load_iris()
+x=iris.data
+y=iris.target
+print(y)
+plt.scatter(x[:,0],x[:,1],c=y,alpha=.5,s=x[:,2]*100)
+#alpha transparence et s taille 
+plt.xlabel('longueur sépal')
+plt.ylabel('largeur sépal')
+plt.show()
+print(type(iris))
+
+from mpl_toolkits.mplot3d import Axes3D
+#graphiques 3d
+ax=plt.axes(projection='3d')
+ax.scatter(x[:,0],x[:,1],x[:,2],c=y)
+plt.show()
+
+f=lambda x,y: np.sin(x)+np.cos(x+y)*np.cos(x**2)
+X=np.linspace(0,5,100)
+Y=np.linspace(0,5,100)
+X,Y=np.meshgrid(X,Y)
+Z=f(X,Y)
+ax=plt.axes(projection='3d')
+ax.plot_surface(X,Y,Z,cmap='plasma')
+plt.show()
+
+#histogramme
+plt.hist(x[:,0],bins=30)
+plt.hist(x[:,1],bins=30) #bins pour le nombre de barres 
+plt.show()
+
+#pour une distribution qui suit deux variables
+plt.hist2d(x[:,0],x[:,1],cmap='Blues')
+plt.xlabel('Longueur')
+plt.ylabel('Largeur')
+plt.colorbar()
+plt.show()
+
+#analyse des couleurs d'une image 
+from skimage import data, color
+face = data.astronaut()  # Image en couleur
+face_gray = color.rgb2gray(face)
+plt.imshow(face_gray, cmap="gray")  # Affichage en noir et blanc
+plt.axis("on")
+plt.show()
+plt.hist(face.ravel(),bins=255)
+plt.show()
+
+#contourplot 
+plt.contour(X,Y,Z,20,colors='black')
+plt.show()
+
+#contour avec colormap 
+plt.contourf(X,Y,Z)
+plt.colorbar()
+plt.show()
+
+plt.imshow(np.corrcoef(x.T),cmap='Blues')
+plt.colorbar()
+plt.show()
+
+###exercice
+
+data={f'experience{i}': np.random.randn(100,3) for i in range(6)}
+n=len(data)
+print(n)
+plt.figure(figsize=(12,30))
+for i,j in zip(data.keys(),range(1,n+1)):
+    plt.subplot(n,2,j)
+    plt.plot(data[i])
+plt.show()
